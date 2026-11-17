@@ -433,6 +433,13 @@
     "ref": "main",
     "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
   },
+  "typescript-advanced-types": {
+    "plugin": "frontend",
+    "repo": "https://github.com/wshobson/agents",
+    "path": "plugins/javascript-typescript/skills/typescript-advanced-types",
+    "ref": "main",
+    "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d"
+  },
   "ux-writing": {
     "plugin": "common",
     "repo": "https://github.com/content-designer/ux-writing-skill",

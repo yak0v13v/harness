@@ -353,6 +353,12 @@
       "repo": "https://github.com/PatternsDev/skills",
       "ref": "main",
       "path": "react/streaming-ssr"
+    },
+    {
+      "name": "typescript-advanced-types",
+      "repo": "https://github.com/wshobson/agents",
+      "ref": "main",
+      "path": "plugins/javascript-typescript/skills/typescript-advanced-types"
     }
   ],
   "backend": [

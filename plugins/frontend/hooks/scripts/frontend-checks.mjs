@@ -3,7 +3,13 @@
 // and asks it to keep working if any of them fail.
 //
 //   frontend-checks.mjs baseline   (SessionStart) remember the current state
-//   frontend-checks.mjs check      (Stop)         run checks if files changed
+//   frontend-checks.mjs check      (Stop)         run checks in changed packages
+//
+// Works in monorepos: every package.json in the git repository is a candidate
+// package (the root one is optional). A changed file belongs to the nearest
+// package above it that has checks, and only packages with changes are checked.
+// Outside git, the nearest package.json above the working directory is checked
+// on every stop.
 //
 // Set HARNESS_FRONTEND_CHECKS=0 to disable.
 
@@ -25,52 +31,78 @@ async function main() {
   if (process.env.HARNESS_FRONTEND_CHECKS === "0") return;
 
   const mode = process.argv[2];
-  const input = readInput();
-  const root = findProjectRoot(input.cwd || process.cwd());
-  if (!root) return;
+  if (mode !== "baseline" && mode !== "check") return;
 
-  const statePath = stateFile(input.session_id, root);
-  const state = readJson(statePath) || { fingerprint: null, attempts: 0 };
+  const input = readInput();
+  const cwd = path.resolve(input.cwd || process.cwd());
+  const repo = gitRoot(cwd);
+  const scope = repo || findProjectRoot(cwd);
+  if (!scope) return;
+
+  const statePath = stateFile(input.session_id, scope);
+  const state = readJson(statePath) || { fingerprints: {}, attempts: 0 };
+  const saved = state.fingerprints || {};
+
+  const packages = repo ? discoverPackages(repo) : discoverSinglePackage(scope);
+  if (packages.length === 0) return;
 
   if (mode === "baseline") {
-    writeJson(statePath, { fingerprint: fingerprint(root), attempts: 0 });
+    writeJson(statePath, { fingerprints: fingerprints(repo, packages), attempts: 0 });
     return;
   }
-  if (mode !== "check") return;
 
-  const before = fingerprint(root);
-  if (before !== null && before === state.fingerprint) return;
+  const current = fingerprints(repo, packages);
+  const changed = packages.filter((p) => !repo || current[p.rel] !== saved[p.rel]);
+  if (changed.length === 0) return;
 
-  const checks = detectChecks(root);
-  if (checks.length === 0) return;
-
-  const results = await Promise.all(checks.map((c) => runCheck(c, root)));
+  const runs = changed.flatMap((p) => p.checks.map((c) => runCheck(c, p)));
+  const results = await Promise.all(runs);
   const failed = results.filter((r) => !r.ok);
+  const failedPackages = new Set(failed.map((r) => r.pkg.rel));
+
+  // Packages that passed (or were unchanged) take their current state;
+  // failed ones keep the saved state so the next stop checks them again.
+  const after = fingerprints(repo, packages);
+  const keep = (rels) => {
+    const next = { ...after };
+    for (const rel of rels) {
+      if (saved[rel] === undefined) delete next[rel];
+      else next[rel] = saved[rel];
+    }
+    return next;
+  };
 
   if (failed.length === 0) {
-    writeJson(statePath, { fingerprint: fingerprint(root), attempts: 0 });
+    writeJson(statePath, { fingerprints: after, attempts: 0 });
     return;
   }
 
-  const names = failed.map((r) => r.name).join(", ");
+  const names = failed.map(label).join(", ");
   if (state.attempts >= MAX_BLOCKS) {
     // Give up on this state; check again once the files change.
-    writeJson(statePath, { fingerprint: fingerprint(root), attempts: 0 });
+    writeJson(statePath, { fingerprints: after, attempts: 0 });
     output({
       systemMessage: `Frontend checks still failing after ${MAX_BLOCKS} attempts: ${names}`,
     });
     return;
   }
 
-  writeJson(statePath, { fingerprint: state.fingerprint, attempts: state.attempts + 1 });
+  writeJson(statePath, { fingerprints: keep(failedPackages), attempts: state.attempts + 1 });
   const details = failed
-    .map((r) => `## ${r.name} failed: \`${r.command}\`\n\n${tail(r.output)}`)
+    .map((r) => {
+      const where = r.pkg.rel === "." ? "" : ` in \`${r.pkg.rel}/\``;
+      return `## ${label(r)} failed: \`${r.command}\`${where}\n\n${tail(r.output)}`;
+    })
     .join("\n\n");
   output({
     decision: "block",
     reason:
       `Frontend checks failed (${names}). Fix the problems below, then finish.\n\n` + details,
   });
+}
+
+function label(result) {
+  return result.pkg.rel === "." ? result.name : `${result.pkg.rel}: ${result.name}`;
 }
 
 function readInput() {
@@ -85,6 +117,15 @@ function output(obj) {
   process.stdout.write(JSON.stringify(obj) + "\n");
 }
 
+function git(cwd, ...args) {
+  return spawnSync("git", args, { cwd, maxBuffer: 256 * 1024 * 1024, encoding: "utf8" });
+}
+
+function gitRoot(cwd) {
+  const res = git(cwd, "rev-parse", "--show-toplevel");
+  return res.status === 0 ? path.resolve(res.stdout.trim()) : null;
+}
+
 function findProjectRoot(start) {
   let dir = path.resolve(start);
   for (;;) {
@@ -95,9 +136,9 @@ function findProjectRoot(start) {
   }
 }
 
-function stateFile(sessionId, root) {
+function stateFile(sessionId, scope) {
   const key = createHash("sha256")
-    .update(`${sessionId || "no-session"}\0${root}`)
+    .update(`${sessionId || "no-session"}\0${scope}`)
     .digest("hex")
     .slice(0, 32);
   return path.join(os.tmpdir(), "harness-frontend-checks", `${key}.json`);
@@ -120,48 +161,107 @@ function writeJson(file, data) {
   }
 }
 
-// Hash of tracked changes plus untracked files, or null outside a git repo.
-function fingerprint(root) {
-  const git = (...args) =>
-    spawnSync("git", args, { cwd: root, maxBuffer: 256 * 1024 * 1024 });
-
-  const inside = git("rev-parse", "--is-inside-work-tree");
-  if (inside.status !== 0) return null;
-
-  const hash = createHash("sha256");
-  const hasHead = git("rev-parse", "--verify", "-q", "HEAD").status === 0;
-  const diff = hasHead
-    ? git("diff", "HEAD", "--binary", "--", ".")
-    : git("diff", "--cached", "--binary", "--", ".");
-  hash.update(diff.stdout || "");
-
-  const untracked = git("ls-files", "-o", "--exclude-standard", "-z", "--", ".");
-  for (const file of String(untracked.stdout || "").split("\0").filter(Boolean)) {
-    try {
-      const st = fs.statSync(path.join(root, file));
-      hash.update(`\0${file}\0${st.size}\0${st.mtimeMs}`);
-    } catch {
-      hash.update(`\0${file}`);
-    }
-  }
-  return hash.digest("hex");
+// Every non-ignored package.json in the repository that has at least one check,
+// deepest first so the nearest package wins when files are assigned.
+function discoverPackages(repo) {
+  const res = git(repo, "ls-files", "-co", "--exclude-standard", "-z", "--", ":(glob)**/package.json");
+  if (res.status !== 0) return [];
+  const rels = String(res.stdout)
+    .split("\0")
+    .filter((f) => f && !f.split("/").includes("node_modules"))
+    .map((f) => path.posix.dirname(f));
+  return [...new Set(rels)]
+    .map((rel) => makePackage(path.join(repo, rel), rel, repo))
+    .filter((p) => p.checks.length > 0)
+    .sort((a, b) => depth(b.rel) - depth(a.rel));
 }
 
-function packageManager(root, pkg) {
+function discoverSinglePackage(dir) {
+  const pkg = makePackage(dir, ".", dir);
+  return pkg.checks.length > 0 ? [pkg] : [];
+}
+
+function makePackage(dir, rel, top) {
+  return { dir, rel, checks: detectChecks(dir, top) };
+}
+
+function depth(rel) {
+  return rel === "." ? 0 : rel.split("/").length;
+}
+
+function owner(file, packages) {
+  return packages.find((p) => p.rel === "." || file === p.rel || file.startsWith(p.rel + "/"));
+}
+
+// Per-package hash of the files that differ from HEAD (tracked changes plus
+// untracked files). A package with no changes has no entry; empty outside git.
+function fingerprints(repo, packages) {
+  if (!repo) return {};
+  const res = git(repo, "status", "--porcelain=v1", "-z", "--untracked-files=all", "--no-renames");
+  if (res.status !== 0) return {};
+
+  const byPackage = new Map();
+  for (const entry of String(res.stdout).split("\0")) {
+    if (entry.length < 4) continue;
+    const code = entry.slice(0, 2);
+    const file = entry.slice(3);
+    const pkg = owner(file, packages);
+    if (!pkg) continue;
+    let sig;
+    try {
+      const st = fs.lstatSync(path.join(repo, file));
+      sig = `${st.size}:${st.mtimeMs}`;
+    } catch {
+      sig = "missing";
+    }
+    if (!byPackage.has(pkg.rel)) byPackage.set(pkg.rel, []);
+    byPackage.get(pkg.rel).push(`${code}\0${file}\0${sig}`);
+  }
+
+  const result = {};
+  for (const [rel, lines] of byPackage) {
+    result[rel] = createHash("sha256").update(lines.sort().join("\n")).digest("hex");
+  }
+  return result;
+}
+
+// Walks from dir up to top (inclusive), returning the first path that exists.
+function findUp(dir, top, names) {
+  let cur = dir;
+  for (;;) {
+    for (const name of names) {
+      const candidate = path.join(cur, name);
+      if (fs.existsSync(candidate)) return candidate;
+    }
+    if (cur === top) return null;
+    const parent = path.dirname(cur);
+    if (parent === cur) return null;
+    cur = parent;
+  }
+}
+
+function packageManager(dir, top, pkg) {
   const declared = typeof pkg.packageManager === "string" && pkg.packageManager.split("@")[0];
   if (["pnpm", "yarn", "bun", "npm"].includes(declared)) return declared;
-  const has = (f) => fs.existsSync(path.join(root, f));
-  if (has("pnpm-lock.yaml")) return "pnpm";
-  if (has("yarn.lock")) return "yarn";
-  if (has("bun.lock") || has("bun.lockb")) return "bun";
+  const lock = findUp(dir, top, ["pnpm-lock.yaml", "yarn.lock", "bun.lock", "bun.lockb", "package-lock.json"]);
+  const name = lock ? path.basename(lock) : "";
+  if (name === "pnpm-lock.yaml") return "pnpm";
+  if (name === "yarn.lock") return "yarn";
+  if (name.startsWith("bun.")) return "bun";
+  if (!lock && top !== dir) {
+    // Workspace members often inherit packageManager from the root package.json.
+    const rootPkg = readJson(path.join(top, "package.json"));
+    const inherited = rootPkg && typeof rootPkg.packageManager === "string" && rootPkg.packageManager.split("@")[0];
+    if (["pnpm", "yarn", "bun"].includes(inherited)) return inherited;
+  }
   return "npm";
 }
 
-function detectChecks(root) {
-  const pkg = readJson(path.join(root, "package.json"));
+function detectChecks(dir, top) {
+  const pkg = readJson(path.join(dir, "package.json"));
   if (!pkg) return [];
   const scripts = pkg.scripts || {};
-  const pm = packageManager(root, pkg);
+  const pm = packageManager(dir, top, pkg);
   const script = (name) => ({ cmd: pm, args: ["run", name], command: `${pm} run ${name}` });
   const checks = [];
 
@@ -170,11 +270,10 @@ function detectChecks(root) {
   const typecheck = TYPECHECK_SCRIPTS.find((s) => scripts[s]);
   if (typecheck) {
     checks.push({ name: "typecheck", ...script(typecheck) });
-  } else {
-    const tsc = path.join(root, "node_modules", ".bin", process.platform === "win32" ? "tsc.cmd" : "tsc");
-    if (fs.existsSync(path.join(root, "tsconfig.json")) && fs.existsSync(tsc)) {
-      checks.push({ name: "typecheck", cmd: tsc, args: ["--noEmit"], command: "tsc --noEmit" });
-    }
+  } else if (fs.existsSync(path.join(dir, "tsconfig.json"))) {
+    const bin = process.platform === "win32" ? "tsc.cmd" : "tsc";
+    const tsc = findUp(dir, top, [path.join("node_modules", ".bin", bin)]);
+    if (tsc) checks.push({ name: "typecheck", cmd: tsc, args: ["--noEmit"], command: "tsc --noEmit" });
   }
 
   if (scripts.test && !scripts.test.includes(NPM_TEST_STUB)) {
@@ -183,7 +282,7 @@ function detectChecks(root) {
   return checks;
 }
 
-function runCheck(check, root) {
+function runCheck(check, pkg) {
   return new Promise((resolve) => {
     let out = "";
     const append = (chunk) => {
@@ -191,7 +290,7 @@ function runCheck(check, root) {
       if (out.length > OUTPUT_TAIL * 4) out = out.slice(-OUTPUT_TAIL * 2);
     };
     const child = spawn(check.cmd, check.args, {
-      cwd: root,
+      cwd: pkg.dir,
       env: { ...process.env, CI: "1", FORCE_COLOR: "0", NO_COLOR: "1" },
       stdio: ["ignore", "pipe", "pipe"],
       shell: process.platform === "win32",
@@ -204,11 +303,11 @@ function runCheck(check, root) {
     child.stderr.on("data", append);
     child.on("error", (err) => {
       clearTimeout(timer);
-      resolve({ ...check, ok: false, output: String(err) });
+      resolve({ ...check, pkg, ok: false, output: String(err) });
     });
     child.on("close", (code) => {
       clearTimeout(timer);
-      resolve({ ...check, ok: code === 0, output: out });
+      resolve({ ...check, pkg, ok: code === 0, output: out });
     });
   });
 }
