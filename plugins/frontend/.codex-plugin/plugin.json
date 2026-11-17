@@ -1,7 +1,7 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
-  "description": "Skills for UI, React and web frontend work",
+  "version": "0.2.0",
+  "description": "Skills and hooks for UI, React and web frontend work",
   "author": {
     "name": "Artem Iakovlev"
   },
@@ -10,7 +10,7 @@
   "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Frontend",
-    "shortDescription": "Skills for UI, React and web frontend work",
+    "shortDescription": "Skills and hooks for UI, React and web frontend work",
     "developerName": "Artem Iakovlev",
     "category": "Productivity"
   }

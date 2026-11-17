@@ -13,7 +13,7 @@
     {
       "name": "frontend",
       "source": "./plugins/frontend",
-      "description": "Skills for UI, React and web frontend work"
+      "description": "Skills and hooks for UI, React and web frontend work"
     },
     {
       "name": "backend",
