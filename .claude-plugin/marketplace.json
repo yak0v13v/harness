@@ -1,0 +1,34 @@
+{
+  "name": "harness",
+  "description": "Personal harness: themed plugins with skills, MCP servers and hooks for Claude Code",
+  "owner": {
+    "name": "Artem Iakovlev"
+  },
+  "plugins": [
+    {
+      "name": "common",
+      "source": "./plugins/common",
+      "description": "General-purpose skills, MCP servers and hooks for any project"
+    },
+    {
+      "name": "frontend",
+      "source": "./plugins/frontend",
+      "description": "Skills for UI, React and web frontend work"
+    },
+    {
+      "name": "backend",
+      "source": "./plugins/backend",
+      "description": "Skills for servers, APIs and databases"
+    },
+    {
+      "name": "rust",
+      "source": "./plugins/rust",
+      "description": "Skills for Rust development"
+    },
+    {
+      "name": "kotlin",
+      "source": "./plugins/kotlin",
+      "description": "Skills for Kotlin development"
+    }
+  ]
+}

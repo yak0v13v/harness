@@ -1,0 +1,17 @@
+{
+  "name": "kotlin",
+  "version": "0.1.0",
+  "description": "Skills for Kotlin development",
+  "author": {
+    "name": "Artem Iakovlev"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Kotlin",
+    "shortDescription": "Skills for Kotlin development",
+    "developerName": "Artem Iakovlev",
+    "category": "Productivity"
+  }
+}

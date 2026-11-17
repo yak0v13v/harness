@@ -1,0 +1,8 @@
+{
+  "name": "common",
+  "version": "0.1.0",
+  "description": "General-purpose skills, MCP servers and hooks for any project",
+  "author": {
+    "name": "Artem Iakovlev"
+  }
+}

@@ -1,0 +1,518 @@
+{
+  "ai-ui-patterns": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/ai-ui-patterns",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "axum-web-framework": {
+    "plugin": "rust",
+    "repo": "https://github.com/manutej/luxor-claude-marketplace",
+    "path": "plugins/luxor-backend-toolkit/skills/axum-web-framework",
+    "ref": "main",
+    "commit": "1861cc9720d5656410415e5c19b06bef3e4609e8"
+  },
+  "bundle-splitting": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/bundle-splitting",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "client-side-rendering": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/client-side-rendering",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "code-review": {
+    "plugin": "common",
+    "repo": "https://github.com/mattpocock/skills",
+    "path": "skills/engineering/code-review",
+    "ref": "main",
+    "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
+  },
+  "command-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/command-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "compound-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/compound-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "compression": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/compression",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "diagnosing-bugs": {
+    "plugin": "common",
+    "repo": "https://github.com/mattpocock/skills",
+    "path": "skills/engineering/diagnosing-bugs",
+    "ref": "main",
+    "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
+  },
+  "dynamic-import": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/dynamic-import",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "event-store-design": {
+    "plugin": "backend",
+    "repo": "https://github.com/wshobson/agents",
+    "path": "plugins/backend-development/skills/event-store-design",
+    "ref": "main",
+    "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d"
+  },
+  "factory-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/factory-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "feature-sliced-design": {
+    "plugin": "frontend",
+    "repo": "https://github.com/feature-sliced/skills",
+    "path": "feature-sliced-design",
+    "ref": "master",
+    "commit": "5e95aaebb84541742686e56352b7569acf4306f1"
+  },
+  "flyweight-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/flyweight-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "frontend-design": {
+    "plugin": "frontend",
+    "repo": "https://github.com/anthropics/skills",
+    "path": "skills/frontend-design",
+    "ref": "main",
+    "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba"
+  },
+  "hexagonal-architecture": {
+    "plugin": "backend",
+    "repo": "https://github.com/affaan-m/ecc",
+    "path": "skills/hexagonal-architecture",
+    "ref": "main",
+    "commit": "3f14a103a8694e51c1df9a806217a6d0b5f7a6f7"
+  },
+  "hoc-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/hoc-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "hooks-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/hooks-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "import-on-interaction": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/import-on-interaction",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "import-on-visibility": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/import-on-visibility",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "incremental-static-rendering": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/incremental-static-rendering",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "islands-architecture": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/islands-architecture",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "js-performance-patterns": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/js-performance-patterns",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "loading-sequence": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/loading-sequence",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "mediator-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/mediator-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "mf": {
+    "plugin": "frontend",
+    "repo": "https://github.com/module-federation/agent-skills",
+    "path": "skills/mf",
+    "ref": "main",
+    "commit": "cfba18cc15d84fce52f36a147a2bb79d81049972"
+  },
+  "microservices-patterns": {
+    "plugin": "backend",
+    "repo": "https://github.com/wshobson/agents",
+    "path": "plugins/backend-development/skills/microservices-patterns",
+    "ref": "main",
+    "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d"
+  },
+  "mixin-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/mixin-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "module-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/module-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "observer-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/observer-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "pnpm": {
+    "plugin": "frontend",
+    "repo": "https://github.com/antfu/skills",
+    "path": "skills/pnpm",
+    "ref": "main",
+    "commit": "4a6bb39e7b45e26402eb215393c51ccf5df1ca4c"
+  },
+  "prefetch": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/prefetch",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "preload": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/preload",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "presentational-container-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/presentational-container-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "progressive-hydration": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/progressive-hydration",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "prototype-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/prototype-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "provider-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/provider-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "proxy-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/proxy-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "prpl": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/prpl",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "react-2026": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/react-2026",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "react-composition-2026": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/react-composition-2026",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "react-data-fetching": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/react-data-fetching",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "react-hook-form": {
+    "plugin": "frontend",
+    "repo": "https://github.com/pproenca/dot-skills",
+    "path": "skills/.curated/react-hook-form",
+    "ref": "master",
+    "commit": "cf93c57cac89d6fc3e4194686000411567f5caf3"
+  },
+  "react-render-optimization": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/react-render-optimization",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "react-selective-hydration": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/react-selective-hydration",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "react-server-components": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/react-server-components",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "redis-core": {
+    "plugin": "backend",
+    "repo": "https://github.com/redis/agent-skills",
+    "path": "skills/redis-core",
+    "ref": "main",
+    "commit": "74708dab4b3f81a9845803c3f642a4f7d443af69"
+  },
+  "render-props-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/render-props-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "route-based": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/route-based",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "rust-async-patterns": {
+    "plugin": "rust",
+    "repo": "https://github.com/wshobson/agents",
+    "path": "plugins/systems-programming/skills/rust-async-patterns",
+    "ref": "main",
+    "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d"
+  },
+  "rust-best-practices": {
+    "plugin": "rust",
+    "repo": "https://github.com/apollographql/skills",
+    "path": "skills/rust-best-practices",
+    "ref": "main",
+    "commit": "9dda1397730370aeb8df4ff8f2015c34c86b5003"
+  },
+  "rust-engineer": {
+    "plugin": "rust",
+    "repo": "https://github.com/jeffallan/claude-skills",
+    "path": "skills/rust-engineer",
+    "ref": "main",
+    "commit": "67c1961b180dc92cf08983344627109e983e8f51"
+  },
+  "saga-orchestration": {
+    "plugin": "backend",
+    "repo": "https://github.com/wshobson/agents",
+    "path": "plugins/backend-development/skills/saga-orchestration",
+    "ref": "main",
+    "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d"
+  },
+  "server-side-rendering": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/server-side-rendering",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "shadcn": {
+    "plugin": "frontend",
+    "repo": "https://github.com/shadcn-ui/ui",
+    "path": "skills/shadcn",
+    "ref": "main",
+    "commit": "968d8cb9dc42ae5d52e8fd356cf84596ec832a26"
+  },
+  "singleton-pattern": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/singleton-pattern",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "static-import": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/static-import",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "static-rendering": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/static-rendering",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "streaming-ssr": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "react/streaming-ssr",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "supabase-postgres-best-practices": {
+    "plugin": "backend",
+    "repo": "https://github.com/supabase/agent-skills",
+    "path": "skills/supabase-postgres-best-practices",
+    "ref": "main",
+    "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7"
+  },
+  "third-party": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/third-party",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "tree-shaking": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/tree-shaking",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "ux-writing": {
+    "plugin": "common",
+    "repo": "https://github.com/content-designer/ux-writing-skill",
+    "path": ".",
+    "ref": "main",
+    "commit": "98cacde4ba2dd10ed28df43a8d53eef1e321c539",
+    "exclude": [
+      ".github",
+      ".gitattributes",
+      ".gitignore",
+      "*.mp4",
+      "dist",
+      "build-skill.sh",
+      "index.html",
+      "CONTRIBUTING.md",
+      "VERSIONING.md",
+      "CHANGELOG.md"
+    ]
+  },
+  "vercel-react-best-practices": {
+    "plugin": "frontend",
+    "repo": "https://github.com/vercel-labs/agent-skills",
+    "path": "skills/react-best-practices",
+    "ref": "main",
+    "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62"
+  },
+  "vercel-react-view-transitions": {
+    "plugin": "frontend",
+    "repo": "https://github.com/vercel-labs/agent-skills",
+    "path": "skills/react-view-transitions",
+    "ref": "main",
+    "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62"
+  },
+  "view-transitions": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/view-transitions",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "virtual-lists": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/virtual-lists",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "vite": {
+    "plugin": "frontend",
+    "repo": "https://github.com/antfu/skills",
+    "path": "skills/vite",
+    "ref": "main",
+    "commit": "4a6bb39e7b45e26402eb215393c51ccf5df1ca4c"
+  },
+  "vite-bundle-optimization": {
+    "plugin": "frontend",
+    "repo": "https://github.com/PatternsDev/skills",
+    "path": "javascript/vite-bundle-optimization",
+    "ref": "main",
+    "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d"
+  },
+  "vitest": {
+    "plugin": "frontend",
+    "repo": "https://github.com/antfu/skills",
+    "path": "skills/vitest",
+    "ref": "main",
+    "commit": "4a6bb39e7b45e26402eb215393c51ccf5df1ca4c"
+  },
+  "web-design-guidelines": {
+    "plugin": "frontend",
+    "repo": "https://github.com/vercel-labs/agent-skills",
+    "path": "skills/web-design-guidelines",
+    "ref": "main",
+    "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62"
+  },
+  "zod": {
+    "plugin": "frontend",
+    "repo": "https://github.com/pproenca/dot-skills",
+    "path": "skills/.curated/zod",
+    "ref": "master",
+    "commit": "cf93c57cac89d6fc3e4194686000411567f5caf3"
+  }
+}

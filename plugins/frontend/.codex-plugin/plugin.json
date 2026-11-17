@@ -1,0 +1,17 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "description": "Skills for UI, React and web frontend work",
+  "author": {
+    "name": "Artem Iakovlev"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Frontend",
+    "shortDescription": "Skills for UI, React and web frontend work",
+    "developerName": "Artem Iakovlev",
+    "category": "Productivity"
+  }
+}

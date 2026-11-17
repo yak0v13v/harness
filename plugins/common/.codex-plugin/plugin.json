@@ -1,0 +1,17 @@
+{
+  "name": "common",
+  "version": "0.1.0",
+  "description": "General-purpose skills, MCP servers and hooks for any project",
+  "author": {
+    "name": "Artem Iakovlev"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Common",
+    "shortDescription": "General-purpose skills, MCP servers and hooks for any project",
+    "developerName": "Artem Iakovlev",
+    "category": "Productivity"
+  }
+}

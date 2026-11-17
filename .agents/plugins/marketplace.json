@@ -1,0 +1,68 @@
+{
+  "name": "harness",
+  "interface": {
+    "displayName": "Harness"
+  },
+  "plugins": [
+    {
+      "name": "common",
+      "source": {
+        "source": "local",
+        "path": "./plugins/common"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "frontend",
+      "source": {
+        "source": "local",
+        "path": "./plugins/frontend"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "backend",
+      "source": {
+        "source": "local",
+        "path": "./plugins/backend"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "rust",
+      "source": {
+        "source": "local",
+        "path": "./plugins/rust"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "kotlin",
+      "source": {
+        "source": "local",
+        "path": "./plugins/kotlin"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

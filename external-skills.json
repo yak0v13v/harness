@@ -1,0 +1,454 @@
+{
+  "frontend": [
+    {
+      "name": "frontend-design",
+      "repo": "https://github.com/anthropics/skills",
+      "ref": "main",
+      "path": "skills/frontend-design"
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "repo": "https://github.com/vercel-labs/agent-skills",
+      "ref": "main",
+      "path": "skills/react-best-practices"
+    },
+    {
+      "name": "feature-sliced-design",
+      "repo": "https://github.com/feature-sliced/skills",
+      "ref": "master",
+      "path": "feature-sliced-design"
+    },
+    {
+      "name": "react-hook-form",
+      "repo": "https://github.com/pproenca/dot-skills",
+      "ref": "master",
+      "path": "skills/.curated/react-hook-form"
+    },
+    {
+      "name": "zod",
+      "repo": "https://github.com/pproenca/dot-skills",
+      "ref": "master",
+      "path": "skills/.curated/zod"
+    },
+    {
+      "name": "shadcn",
+      "repo": "https://github.com/shadcn-ui/ui",
+      "ref": "main",
+      "path": "skills/shadcn"
+    },
+    {
+      "name": "pnpm",
+      "repo": "https://github.com/antfu/skills",
+      "ref": "main",
+      "path": "skills/pnpm"
+    },
+    {
+      "name": "vitest",
+      "repo": "https://github.com/antfu/skills",
+      "ref": "main",
+      "path": "skills/vitest"
+    },
+    {
+      "name": "vite",
+      "repo": "https://github.com/antfu/skills",
+      "ref": "main",
+      "path": "skills/vite"
+    },
+    {
+      "name": "mf",
+      "repo": "https://github.com/module-federation/agent-skills",
+      "ref": "main",
+      "path": "skills/mf"
+    },
+    {
+      "name": "vercel-react-view-transitions",
+      "repo": "https://github.com/vercel-labs/agent-skills",
+      "ref": "main",
+      "path": "skills/react-view-transitions"
+    },
+    {
+      "name": "web-design-guidelines",
+      "repo": "https://github.com/vercel-labs/agent-skills",
+      "ref": "main",
+      "path": "skills/web-design-guidelines"
+    },
+    {
+      "name": "bundle-splitting",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/bundle-splitting"
+    },
+    {
+      "name": "command-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/command-pattern"
+    },
+    {
+      "name": "compression",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/compression"
+    },
+    {
+      "name": "dynamic-import",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/dynamic-import"
+    },
+    {
+      "name": "factory-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/factory-pattern"
+    },
+    {
+      "name": "flyweight-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/flyweight-pattern"
+    },
+    {
+      "name": "import-on-interaction",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/import-on-interaction"
+    },
+    {
+      "name": "import-on-visibility",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/import-on-visibility"
+    },
+    {
+      "name": "islands-architecture",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/islands-architecture"
+    },
+    {
+      "name": "js-performance-patterns",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/js-performance-patterns"
+    },
+    {
+      "name": "loading-sequence",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/loading-sequence"
+    },
+    {
+      "name": "mediator-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/mediator-pattern"
+    },
+    {
+      "name": "mixin-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/mixin-pattern"
+    },
+    {
+      "name": "module-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/module-pattern"
+    },
+    {
+      "name": "observer-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/observer-pattern"
+    },
+    {
+      "name": "prefetch",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/prefetch"
+    },
+    {
+      "name": "preload",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/preload"
+    },
+    {
+      "name": "prototype-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/prototype-pattern"
+    },
+    {
+      "name": "provider-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/provider-pattern"
+    },
+    {
+      "name": "proxy-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/proxy-pattern"
+    },
+    {
+      "name": "prpl",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/prpl"
+    },
+    {
+      "name": "route-based",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/route-based"
+    },
+    {
+      "name": "singleton-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/singleton-pattern"
+    },
+    {
+      "name": "static-import",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/static-import"
+    },
+    {
+      "name": "third-party",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/third-party"
+    },
+    {
+      "name": "tree-shaking",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/tree-shaking"
+    },
+    {
+      "name": "view-transitions",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/view-transitions"
+    },
+    {
+      "name": "virtual-lists",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/virtual-lists"
+    },
+    {
+      "name": "vite-bundle-optimization",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "javascript/vite-bundle-optimization"
+    },
+    {
+      "name": "ai-ui-patterns",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/ai-ui-patterns"
+    },
+    {
+      "name": "client-side-rendering",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/client-side-rendering"
+    },
+    {
+      "name": "compound-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/compound-pattern"
+    },
+    {
+      "name": "hoc-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/hoc-pattern"
+    },
+    {
+      "name": "hooks-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/hooks-pattern"
+    },
+    {
+      "name": "incremental-static-rendering",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/incremental-static-rendering"
+    },
+    {
+      "name": "presentational-container-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/presentational-container-pattern"
+    },
+    {
+      "name": "progressive-hydration",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/progressive-hydration"
+    },
+    {
+      "name": "react-2026",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/react-2026"
+    },
+    {
+      "name": "react-composition-2026",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/react-composition-2026"
+    },
+    {
+      "name": "react-data-fetching",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/react-data-fetching"
+    },
+    {
+      "name": "react-render-optimization",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/react-render-optimization"
+    },
+    {
+      "name": "react-selective-hydration",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/react-selective-hydration"
+    },
+    {
+      "name": "react-server-components",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/react-server-components"
+    },
+    {
+      "name": "render-props-pattern",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/render-props-pattern"
+    },
+    {
+      "name": "server-side-rendering",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/server-side-rendering"
+    },
+    {
+      "name": "static-rendering",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/static-rendering"
+    },
+    {
+      "name": "streaming-ssr",
+      "repo": "https://github.com/PatternsDev/skills",
+      "ref": "main",
+      "path": "react/streaming-ssr"
+    }
+  ],
+  "backend": [
+    {
+      "name": "hexagonal-architecture",
+      "repo": "https://github.com/affaan-m/ecc",
+      "ref": "main",
+      "path": "skills/hexagonal-architecture"
+    },
+    {
+      "name": "supabase-postgres-best-practices",
+      "repo": "https://github.com/supabase/agent-skills",
+      "ref": "main",
+      "path": "skills/supabase-postgres-best-practices"
+    },
+    {
+      "name": "redis-core",
+      "repo": "https://github.com/redis/agent-skills",
+      "ref": "main",
+      "path": "skills/redis-core"
+    },
+    {
+      "name": "microservices-patterns",
+      "repo": "https://github.com/wshobson/agents",
+      "ref": "main",
+      "path": "plugins/backend-development/skills/microservices-patterns"
+    },
+    {
+      "name": "saga-orchestration",
+      "repo": "https://github.com/wshobson/agents",
+      "ref": "main",
+      "path": "plugins/backend-development/skills/saga-orchestration"
+    },
+    {
+      "name": "event-store-design",
+      "repo": "https://github.com/wshobson/agents",
+      "ref": "main",
+      "path": "plugins/backend-development/skills/event-store-design"
+    }
+  ],
+  "common": [
+    {
+      "name": "ux-writing",
+      "repo": "https://github.com/content-designer/ux-writing-skill",
+      "ref": "main",
+      "path": ".",
+      "exclude": [
+        ".github",
+        ".gitattributes",
+        ".gitignore",
+        "*.mp4",
+        "dist",
+        "build-skill.sh",
+        "index.html",
+        "CONTRIBUTING.md",
+        "VERSIONING.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "name": "code-review",
+      "repo": "https://github.com/mattpocock/skills",
+      "ref": "main",
+      "path": "skills/engineering/code-review"
+    },
+    {
+      "name": "diagnosing-bugs",
+      "repo": "https://github.com/mattpocock/skills",
+      "ref": "main",
+      "path": "skills/engineering/diagnosing-bugs"
+    }
+  ],
+  "rust": [
+    {
+      "name": "axum-web-framework",
+      "repo": "https://github.com/manutej/luxor-claude-marketplace",
+      "ref": "main",
+      "path": "plugins/luxor-backend-toolkit/skills/axum-web-framework"
+    },
+    {
+      "name": "rust-best-practices",
+      "repo": "https://github.com/apollographql/skills",
+      "ref": "main",
+      "path": "skills/rust-best-practices"
+    },
+    {
+      "name": "rust-async-patterns",
+      "repo": "https://github.com/wshobson/agents",
+      "ref": "main",
+      "path": "plugins/systems-programming/skills/rust-async-patterns"
+    },
+    {
+      "name": "rust-engineer",
+      "repo": "https://github.com/jeffallan/claude-skills",
+      "ref": "main",
+      "path": "skills/rust-engineer"
+    }
+  ]
+}

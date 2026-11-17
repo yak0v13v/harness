@@ -1,0 +1,17 @@
+{
+  "name": "rust",
+  "version": "0.1.0",
+  "description": "Skills for Rust development",
+  "author": {
+    "name": "Artem Iakovlev"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Rust",
+    "shortDescription": "Skills for Rust development",
+    "developerName": "Artem Iakovlev",
+    "category": "Productivity"
+  }
+}
