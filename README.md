@@ -17,15 +17,30 @@
 **Claude Code**
 
 ```sh
-claude plugin marketplace add <owner>/harness   # или локальный путь к репозиторию
+claude plugin marketplace add yak0v13v/harness   # или локальный путь к репозиторию
 claude plugin install common@harness
 claude plugin install frontend@harness
+```
+
+Внутри сессии то же самое делается командами `/plugin marketplace add yak0v13v/harness` и `/plugin install common@harness`. Новые коммиты подтягиваются через `claude plugin marketplace update harness`.
+
+Чтобы Claude Code предлагал маркетплейс всем, кто работает в проекте, добавьте его в `.claude/settings.json` этого проекта:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "harness": {
+      "source": { "source": "github", "repo": "yak0v13v/harness" }
+    }
+  },
+  "enabledPlugins": { "common@harness": true }
+}
 ```
 
 **Codex**
 
 ```sh
-codex plugin marketplace add <owner>/harness    # или локальный путь к репозиторию
+codex plugin marketplace add yak0v13v/harness    # или локальный путь к репозиторию
 codex plugin add common@harness
 codex plugin add frontend@harness
 ```
